@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Know Your Rights</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f6f8;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: auto;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #1d4ed8;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: #374151;
+    }
+
+    select, textarea, button {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      border: 1px solid #cbd5e0;
+      font-size: 1rem;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    button {
+      background-color: #2563eb;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #1e40af;
+    }
+
+    .output {
+      background-color: #ecfdf5;
+      border-left: 4px solid #10b981;
+      padding: 16px;
+      border-radius: 8px;
+      font-size: 1rem;
+      color: #065f46;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Know Your Rights</h1>
+
+    <label for="lawType">Select Law Type</label>
+    <select id="lawType">
+      <option value="general">General</option>
+      <option value="labor">Labor Law</option>
+      <option value="tenant">Tenant Rights</option>
+      <option value="immigration">Immigration</option>
+      <option value="criminal">Criminal Law</option>
+    </select>
+
+    <label for="lawText">Paste Complex Legal Text</label>
+    <textarea id="lawText" placeholder="Enter legal text here..."></textarea>
+
+    <button onclick="simplifyLaw()">Translate to Plain Language</button>
+
+    <div id="output" class="output" style="display: none;">
+      <strong>Plain Language Explanation:</strong>
+      <p id="resultText">[Simplified text will appear here.]</p>
+    </div>
+  </div>
+
+  <script>
+    function simplifyLaw() {
+      const text = document.getElementById("lawText").value;
+      const output = document.getElementById("output");
+      const resultText = document.getElementById("resultText");
+
+      if (text.trim() === "") {
+        resultText.innerText = "Please enter some legal text first.";
+      } else {
+        // This is just a placeholder. In reality, you'd call your API here.
+        resultText.innerText = "This is a simplified explanation of your legal input...";
+      }
+
+      output.style.display = "block";
+    }
+  </script>
+</body>
+</html>
